@@ -6,6 +6,7 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiReference
 import com.intellij.psi.PsiReferenceProvider
 import com.intellij.util.ProcessingContext
+import com.yognevoy.bxcontrollernavigator.utils.BXScriptContextUtil
 
 class BXControllerReferenceProvider : PsiReferenceProvider() {
 
@@ -27,6 +28,10 @@ class BXControllerReferenceProvider : PsiReferenceProvider() {
         val stringValue = element.stringValue ?: return PsiReference.EMPTY_ARRAY
 
         if (!BXControllerPathParser.isControllerPath(stringValue)) {
+            return PsiReference.EMPTY_ARRAY
+        }
+
+        if (!BXScriptContextUtil.isBXAjaxCall(element)) {
             return PsiReference.EMPTY_ARRAY
         }
 
