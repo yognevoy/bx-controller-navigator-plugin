@@ -4,6 +4,7 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.psi.search.FilenameIndex
 import com.intellij.psi.search.GlobalSearchScope
+import com.intellij.psi.search.GlobalSearchScopes
 import com.yognevoy.bxcontrollernavigator.settings.Settings
 
 class BXControllerResolver(private val project: Project) {
@@ -26,9 +27,15 @@ class BXControllerResolver(private val project: Project) {
 
         val modulePath = "${localPath}/local/modules/${vendor}.${moduleName}"
 
+        val localDir = findFileByPath("${localPath}/local/")
+
+        if (localDir == null) {
+            return null
+        }
+
         val settingsFiles = FilenameIndex.getVirtualFilesByName(
             ".settings.php",
-            GlobalSearchScope.projectScope(project)
+            GlobalSearchScopes.directoryScope(project, localDir, true)
         )
 
         var controllerFile: VirtualFile? = null
