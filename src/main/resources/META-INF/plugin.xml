@@ -26,6 +26,12 @@
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
+        <projectService serviceImplementation="com.yognevoy.bxcontrollernavigator.settings.Settings"/>
+        <projectConfigurable
+                parentId="tools"
+                instance="com.yognevoy.bxcontrollernavigator.settings.SettingsConfigurable"
+                id="com.yognevoy.bxcontrollernavigator.settings.SettingsConfigurable"
+                displayName="BX Controller Navigator"/>
         <psi.referenceContributor language="JavaScript" implementation="com.yognevoy.bxcontrollernavigator.BXControllerReferenceContributor"/>
     </extensions>
 </idea-plugin>
