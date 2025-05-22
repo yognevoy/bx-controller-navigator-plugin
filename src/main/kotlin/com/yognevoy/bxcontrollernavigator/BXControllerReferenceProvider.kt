@@ -9,6 +9,13 @@ import com.intellij.util.ProcessingContext
 
 class BXControllerReferenceProvider : PsiReferenceProvider() {
 
+    /**
+     * Creates references for PsiElements that are contain Bitrix controller paths.
+     *
+     * @param element
+     * @param context
+     * @return Array of references
+     */
     override fun getReferencesByElement(
         element: PsiElement,
         context: ProcessingContext

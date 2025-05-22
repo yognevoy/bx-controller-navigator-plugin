@@ -13,6 +13,11 @@ class BXControllerReference(
     private val path: String
 ) : PsiReferenceBase<PsiElement>(element, range) {
 
+    /**
+     * Resolves the reference to the target PsiElement (controller method or file).
+     *
+     * @return The target controller method or file
+     */
     override fun resolve(): PsiElement? {
         val project = element.project
 

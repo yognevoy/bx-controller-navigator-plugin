@@ -8,6 +8,14 @@ import com.yognevoy.bxcontrollernavigator.settings.Settings
 
 class BXControllerResolver(private val project: Project) {
 
+    /**
+     * Finds the virtual file corresponding to a Bitrix controller path.
+     * Searches for .settings.php files in the module directory to determine
+     * the correct controller location based on namespace mappings.
+     *
+     * @param path The parsed Bitrix controller path
+     * @return The VirtualFile of the controller
+     */
     fun findFile(path: BXControllerPath): VirtualFile? {
         val vendor = path.vendor.lowercase()
         val moduleName = path.module.lowercase()
@@ -49,6 +57,12 @@ class BXControllerResolver(private val project: Project) {
         return controllerFile
     }
 
+    /**
+     * Helper method to find a file by its relative path.
+     *
+     * @param path The relative path to the file
+     * @return The VirtualFile
+     */
     private fun findFileByPath(path: String): VirtualFile? {
         val baseDir = project.baseDir ?: return null
         return baseDir.findFileByRelativePath(path)

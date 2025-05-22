@@ -7,6 +7,11 @@ import com.intellij.psi.PsiReferenceRegistrar
 
 class BXControllerReferenceContributor : PsiReferenceContributor() {
 
+    /**
+     * Registers a reference provider for JavaScript string literals.
+     *
+     * @param registrar
+     */
     override fun registerReferenceProviders(registrar: PsiReferenceRegistrar) {
         registrar.registerReferenceProvider(
             PlatformPatterns.psiElement(JSLiteralExpression::class.java),

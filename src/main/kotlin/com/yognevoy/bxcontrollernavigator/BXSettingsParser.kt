@@ -11,6 +11,12 @@ import com.jetbrains.php.lang.psi.elements.StringLiteralExpression
 
 class BXSettingsParser(private val project: Project) {
 
+    /**
+     * Parses a .settings.php file to extract controller namespace mappings.
+     *
+     * @param settingsFile The VirtualFile to parse
+     * @return A map of namespaces and directory paths
+     */
     fun parseControllerNamespaces(settingsFile: VirtualFile): Map<String, String> {
         val namespaces = mutableMapOf<String, String>()
 
@@ -34,6 +40,13 @@ class BXSettingsParser(private val project: Project) {
         return namespaces
     }
 
+    /**
+     * Helper method to extract namespace mappings from a PHP array structure.
+     * Processes the 'controllers' section of the .settings.php file.
+     *
+     * @param array
+     * @param namespaces
+     */
     private fun extractNamespaces(array: ArrayCreationExpression, namespaces: MutableMap<String, String>) {
         val hashElements = PsiTreeUtil.findChildrenOfType(array, ArrayHashElement::class.java)
 
