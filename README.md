@@ -1,0 +1,1 @@
+# PhpStorm BX Controller Navigator Plugin
