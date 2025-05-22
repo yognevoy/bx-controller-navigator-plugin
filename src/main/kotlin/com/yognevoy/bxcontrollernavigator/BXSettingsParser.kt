@@ -66,12 +66,17 @@ class BXSettingsParser(private val project: Project) {
                             val nsKey = namespaceElement.key as? StringLiteralExpression ?: continue
                             val nsValue = namespaceElement.value as? StringLiteralExpression ?: continue
 
-                            val namespace = nsKey.contents.trim('\\')
+                            val namespace = nsKey.contents
+                                .replace("\\\\", "\\")
+                                .trim('\\')
 
                             val parts = namespace.split("\\")
-                            val lastPart = parts.last()
+                            if (parts.size <= 2) {
+                                continue
+                            }
 
-                            val controllerPath = "lib/${lastPart}"
+                            val pathParts = parts.drop(2).map { it.lowercase() }
+                            val controllerPath = "lib/${pathParts.joinToString("/")}"
 
                             namespaces[nsValue.contents] = controllerPath
                         }
