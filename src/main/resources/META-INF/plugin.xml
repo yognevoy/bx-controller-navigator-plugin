@@ -27,7 +27,7 @@
         <li>PhpStorm with PHP and JavaScript plugins</li>
         <li>Bitrix project structure with controllers in the /local/ directory</li>
     </ul>
-    <p>For more information, issues, and contributions, visit the <a href="https://github.com/yognevoy/bitrix-controller-navigator">GitHub repository</a>.</p>
+    <p>For more information, issues, and contributions, visit the <a href="https://github.com/yognevoy/bx-controller-navigator-plugin">GitHub repository</a>.</p>
   ]]></description>
 
     <depends>com.intellij.modules.platform</depends>
