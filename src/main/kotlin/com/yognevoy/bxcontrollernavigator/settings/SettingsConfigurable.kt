@@ -14,7 +14,7 @@ class SettingsConfigurable(private val project: Project) : Configurable {
     /**
      * Returns the display name shown in the Settings dialog.
      */
-    override fun getDisplayName(): String = "BX Controller Navigator"
+    override fun getDisplayName(): String = "Bitrix Controller Navigator"
 
     /**
      * Creates the settings component UI.
