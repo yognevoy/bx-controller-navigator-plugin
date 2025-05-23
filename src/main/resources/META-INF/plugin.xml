@@ -33,5 +33,6 @@
                 id="com.yognevoy.bxcontrollernavigator.settings.SettingsConfigurable"
                 displayName="BX Controller Navigator"/>
         <psi.referenceContributor language="JavaScript" implementation="com.yognevoy.bxcontrollernavigator.BXControllerReferenceContributor"/>
+        <completion.contributor language="JavaScript" implementationClass="com.yognevoy.bxcontrollernavigator.completion.BXControllerCompletionContributor"/>
     </extensions>
 </idea-plugin>
