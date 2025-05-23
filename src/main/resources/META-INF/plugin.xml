@@ -1,4 +1,3 @@
-
 <idea-plugin>
 
     <id>com.yognevoy.bx-controller-navigator</id>
@@ -6,7 +5,29 @@
     <vendor url="https://yognevoy.com">Yognevoy</vendor>
 
     <description><![CDATA[
-    Navigate to Bitrix controller files from JS code.
+    <h2>Bitrix Controller Navigator</h2>
+
+    <p>Provides quick access to Bitrix controller files from their JavaScript references.</p>
+
+    <h3>Key Features:</h3>
+    <ul>
+        <li><b>Controller Navigation:</b> Ctrl+Click on controller paths in JavaScript to quickly navigate to the corresponding PHP controller file or method.</li>
+        <li><b>Autocompletion:</b> Get intelligent suggestions for controller paths when using ajax functions.</li>
+        <li><b>Namespace Awareness:</b> Automatically resolves controller namespaces by analyzing .settings.php files in Bitrix modules.</li>
+    </ul>
+
+    <h3>Supported Patterns:</h3>
+    <p>The plugin recognizes Bitrix controller paths in the format: <code>vendor:module.namespace.controller.action</code></p>
+
+    <h3>Configuration:</h3>
+    <p>Customize the path to your local directory in Settings → Tools → Bitrix Controller Navigator.</p>
+
+    <h3>Requirements:</h3>
+    <ul>
+        <li>PhpStorm with PHP and JavaScript plugins</li>
+        <li>Bitrix project structure with controllers in the /local/ directory</li>
+    </ul>
+    <p>For more information, issues, and contributions, visit the <a href="https://github.com/yognevoy/bitrix-controller-navigator">GitHub repository</a>.</p>
   ]]></description>
 
     <depends>com.intellij.modules.platform</depends>
@@ -21,7 +42,9 @@
                 instance="com.yognevoy.bxcontrollernavigator.settings.SettingsConfigurable"
                 id="com.yognevoy.bxcontrollernavigator.settings.SettingsConfigurable"
                 displayName="Bitrix Controller Navigator"/>
-        <psi.referenceContributor language="JavaScript" implementation="com.yognevoy.bxcontrollernavigator.BXControllerReferenceContributor"/>
-        <completion.contributor language="JavaScript" implementationClass="com.yognevoy.bxcontrollernavigator.completion.BXControllerCompletionContributor"/>
+        <psi.referenceContributor language="JavaScript"
+                                  implementation="com.yognevoy.bxcontrollernavigator.BXControllerReferenceContributor"/>
+        <completion.contributor language="JavaScript"
+                                implementationClass="com.yognevoy.bxcontrollernavigator.completion.BXControllerCompletionContributor"/>
     </extensions>
 </idea-plugin>
