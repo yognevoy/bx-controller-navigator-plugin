@@ -39,7 +39,7 @@ class BXControllerCompletionProvider : CompletionProvider<CompletionParameters>(
 
         val project = parameters.position.project
         val settings = Settings.getInstance(project)
-        val localPath = settings.localPath.removeSuffix("/")
+        val localPath = settings.localPath.removeSurrounding("/")
 
         val localDir = FileUtil.findFileByPath(project, "${localPath}/local/") ?: return
         val modulesDir = localDir.findFileByRelativePath("modules/") ?: return

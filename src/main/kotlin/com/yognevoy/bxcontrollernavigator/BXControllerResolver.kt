@@ -23,7 +23,7 @@ class BXControllerResolver(private val project: Project) {
         val controllerName = path.controller
 
         val settings = Settings.getInstance(project)
-        val localPath = settings.localPath.removeSuffix("/")
+        val localPath = settings.localPath.removeSurrounding("/")
 
         val modulePath = "${localPath}/local/modules/${vendor}.${moduleName}"
 
