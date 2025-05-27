@@ -16,6 +16,7 @@ import com.jetbrains.php.lang.psi.elements.PhpClass
 import com.yognevoy.bxcontrollernavigator.BXSettingsParser
 import com.yognevoy.bxcontrollernavigator.settings.Settings
 import com.yognevoy.bxcontrollernavigator.utils.BXScriptContextUtil
+import com.yognevoy.bxcontrollernavigator.utils.FileUtil
 
 class BXControllerCompletionProvider : CompletionProvider<CompletionParameters>() {
 
@@ -40,7 +41,7 @@ class BXControllerCompletionProvider : CompletionProvider<CompletionParameters>(
         val settings = Settings.getInstance(project)
         val localPath = settings.localPath.removeSuffix("/")
 
-        val localDir = project.baseDir?.findFileByRelativePath("${localPath}/local/") ?: return
+        val localDir = FileUtil.findFileByPath(project, "${localPath}/local/") ?: return
         val modulesDir = localDir.findFileByRelativePath("modules/") ?: return
 
         for (vendorModuleDir in modulesDir.children) {

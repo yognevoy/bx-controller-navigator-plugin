@@ -3,9 +3,9 @@ package com.yognevoy.bxcontrollernavigator
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.psi.search.FilenameIndex
-import com.intellij.psi.search.GlobalSearchScope
 import com.intellij.psi.search.GlobalSearchScopes
 import com.yognevoy.bxcontrollernavigator.settings.Settings
+import com.yognevoy.bxcontrollernavigator.utils.FileUtil
 
 class BXControllerResolver(private val project: Project) {
 
@@ -27,7 +27,7 @@ class BXControllerResolver(private val project: Project) {
 
         val modulePath = "${localPath}/local/modules/${vendor}.${moduleName}"
 
-        val localDir = findFileByPath("${localPath}/local/")
+        val localDir = FileUtil.findFileByPath(project, "${localPath}/local/")
 
         if (localDir == null) {
             return null
@@ -55,23 +55,12 @@ class BXControllerResolver(private val project: Project) {
 
                 if (controllerDir != null) {
                     val controllerFilePath = "${modulePath}/${controllerDir}/${controllerName.lowercase()}.php"
-                    controllerFile = findFileByPath(controllerFilePath)
+                    controllerFile = FileUtil.findFileByPath(project, controllerFilePath)
                     if (controllerFile != null) break
                 }
             }
         }
 
         return controllerFile
-    }
-
-    /**
-     * Helper method to find a file by its relative path.
-     *
-     * @param path The relative path to the file
-     * @return The VirtualFile
-     */
-    private fun findFileByPath(path: String): VirtualFile? {
-        val baseDir = project.baseDir ?: return null
-        return baseDir.findFileByRelativePath(path)
     }
 }
