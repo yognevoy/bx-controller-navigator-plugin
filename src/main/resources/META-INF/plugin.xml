@@ -30,8 +30,9 @@
     <p>For more information, issues, and contributions, visit the <a href="https://github.com/yognevoy/bx-controller-navigator-plugin">GitHub repository</a>.</p>
   ]]></description>
 
+    <idea-version since-build="242"/>
+
     <depends>com.intellij.modules.platform</depends>
-    <depends>com.intellij.modules.lang</depends>
     <depends>JavaScript</depends>
     <depends>com.jetbrains.php</depends>
 
