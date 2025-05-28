@@ -41,6 +41,12 @@ intellijPlatform {
       Initial version
     """.trimIndent()
     }
+
+    pluginVerification {
+        ides {
+            ide(org.jetbrains.intellij.platform.gradle.IntelliJPlatformType.PhpStorm, "2025.1.1")
+        }
+    }
 }
 
 tasks {
