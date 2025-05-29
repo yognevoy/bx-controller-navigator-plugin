@@ -36,7 +36,7 @@ class BXControllerReference(
                 val actionMethodName = "${controllerPath.action}Action"
                 val methods = phpClass.methods
                 for (method in methods) {
-                    if (method.name.equals(actionMethodName, ignoreCase = true)) {
+                    if (method.name == actionMethodName) {
                         return method
                     }
                 }
