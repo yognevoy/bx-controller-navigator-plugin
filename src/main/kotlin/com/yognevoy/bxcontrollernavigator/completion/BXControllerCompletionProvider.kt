@@ -103,12 +103,12 @@ class BXControllerCompletionProvider : CompletionProvider<CompletionParameters>(
                                 val actionName = method.name.removeSuffix("Action")
 
                                 val fullPath =
-                                    "$vendor:$module.$namespace.${controllerName.lowercase()}.${actionName.lowercase()}"
+                                    "$vendor:$module.$namespace.${controllerName.lowercase()}.${actionName}"
 
                                 result.addElement(
                                     LookupElementBuilder.create(fullPath)
                                         .withPresentableText(fullPath)
-                                        .withCaseSensitivity(false)
+                                        .withCaseSensitivity(true)
                                         .withTypeText("Controller Action")
                                 )
                             }
