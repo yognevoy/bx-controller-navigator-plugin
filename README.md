@@ -4,6 +4,7 @@ A PHPStorm plugin that enables seamless navigation between JavaScript Bitrix aja
 
 [![Release](https://img.shields.io/badge/release-v.1.0.0-blue.svg)](https://github.com/yognevoy/bx-controller-navigator-plugin/releases/tag/v1.0.0)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/yognevoy/bx-controller-navigator-plugin/blob/master/LICENSE.txt)
+![JetBrains Plugin Downloads](https://img.shields.io/jetbrains/plugin/d/27457-bitrix-controller-navigator)
 
 ## Features
 
@@ -23,7 +24,8 @@ The Bitrix Controller Navigator plugin enhances PHPStorm's developer experience 
 
 **From JetBrains Marketplace**
 
-- Will be soon
+1. Visit the [Bitrix Controller Navigator](https://plugins.jetbrains.com/plugin/27457-bitrix-controller-navigator/) in Marketplace
+2. Click "Get" and start IDE when prompted
 
 **Manual Installation**
 
